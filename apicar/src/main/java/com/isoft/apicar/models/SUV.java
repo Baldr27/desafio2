@@ -15,14 +15,5 @@ public class SUV extends Car{
     super(id, brand, year, color, price, turbo, "SUV", motor);
     this.sunroof = sunroof;
   }
-  public String getNombre(){
-    return this.getNombre();
-  }
 
-  public String getType(){
-    return this.getType();
-  }
-  public double getPrice(){
-    return this.getPrice();
-  }
 }

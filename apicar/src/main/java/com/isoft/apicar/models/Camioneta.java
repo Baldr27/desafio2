@@ -15,14 +15,5 @@ public class Camioneta extends Car{
     super(id, brand, year, color, price, turbo, "Camioneta", motor);
     this.cabinas = cabinas;
   }
-  public String getNombre(){
-    return this.getNombre();
-  }
 
-  public String getType(){
-    return this.getType();
-  }
-  public double getPrice(){
-    return this.getPrice();
-  }
 }

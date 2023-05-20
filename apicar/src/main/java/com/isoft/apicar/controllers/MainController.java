@@ -22,8 +22,6 @@ public class MainController {
 
   private static CarGenerator gen = new CarGenerator();
 
-
-  // main controller genera numero de carros en base al parametro
   @RequestMapping("/generate")
   @ResponseBody
   public List<Car> listCars(@RequestParam("quantity") int quantity){

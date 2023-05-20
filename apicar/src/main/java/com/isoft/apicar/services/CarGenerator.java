@@ -2,15 +2,13 @@ package com.isoft.apicar.services;
 
 import com.isoft.apicar.models.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
  * CarGenerator
  */
 public class CarGenerator {
-//rng es una variable random
+
   private Random rng = new Random();
 
   String[] brands = {"Toyota", "Honda", "Audi", "BMW", "Hyundai"};
@@ -66,26 +64,6 @@ public class CarGenerator {
         }else{
             return null;
         }
-    }
-
-    public List<Car> StringFiltro(){
-        List<Car> cars = new ArrayList<Car>();
-
-        return cars;
-    }
-
-    public List<Car> filtroTipo(List<Car> cars){
-
-        return cars;
-    }
-    public List<Car> filtroPrecio(List<Car> cars){
-
-        return cars;
-    }
-    public List<Car> filtroColor(List<Car> cars){
-
-
-        return cars;
     }
   
 }
