@@ -1,7 +1,8 @@
 package com.isoft.apicar.services;
 
 import com.isoft.apicar.models.*;
-
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -64,6 +65,50 @@ public class CarGenerator {
         }else{
             return null;
         }
+    }
+
+    public List<Car> filtradoCar(List<Car> cars, String color, String tipo, double precio){
+        List<Car> filtradoCars = cars;
+
+        filtradoCars= filtroTipo(filtroColor(filtroPrecio(cars,precio),color),tipo);
+
+        return filtradoCars;
+    }
+
+    public List<Car> filtroTipo(List<Car> cars, String tipo){
+        List<Car> filtradoCar= new ArrayList<Car>();  
+        filtradoCar=cars;
+        int i;
+        for (i = 0; i < cars.size(); i++) {
+            if(filtradoCar.get(i).getType().equals(tipo)){
+                filtradoCar.remove(i);
+            }
+        }
+
+        return filtradoCar;
+    }
+    public List<Car> filtroColor(List<Car> cars,String color){
+        List<Car> filtradoCar= new ArrayList<Car>();  
+        filtradoCar=cars;
+        int i;
+        for (i = 0; i < cars.size(); i++) {
+            if(filtradoCar.get(i).getColor().equals(color)){
+                filtradoCar.remove(i);
+            }
+        }
+
+        return filtradoCar;
+    }
+    public List<Car> filtroPrecio(List<Car> cars, double precio){
+        List<Car> filtradoCar= new ArrayList<Car>();  
+        filtradoCar=cars;
+        int i;
+        for (i = 0; i < cars.size(); i++) {
+            if(filtradoCar.get(i).getPrice()<= precio){
+                filtradoCar.remove(i);
+            }
+        }
+        return filtradoCar;
     }
   
 }

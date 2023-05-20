@@ -21,16 +21,28 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 public class MainController {
 
   private static CarGenerator gen = new CarGenerator();
+  private List<Car> cars = new ArrayList<Car>();
+
 
   @RequestMapping("/generate")
   @ResponseBody
   public List<Car> listCars(@RequestParam("quantity") int quantity){
-    List<Car> cars = new ArrayList<Car>();
+    cars = new ArrayList<Car>();
 
     for(int i = 1; i<=quantity; i++){
       cars.add(gen.generateCar((long)i));
     }
     return cars;
   }
+
+  @RequestMapping("/list")
+  @ResponseBody
+  public List<Car> filtredCars(@RequestParam("color") String color,@RequestParam("type") String type,@RequestParam("price") double price){
+    cars = new ArrayList<Car>();
+   
+    return gen.filtradoCar(cars,color , type, price);
+  }
+  
+
   
 }
