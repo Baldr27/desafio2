@@ -56,7 +56,7 @@
     },
     methods:{
       generate(){
-        axios.get(`http://localhost:3001/api/list?color=${this.color}/type=${this.type}/price=${this.price}`)
+        axios.get(`http://localhost:3001/api/list?color=${this.color}&type=${this.type}&price=${this.price}`)
           .then(response => {
             this.cars = response.data;
           })

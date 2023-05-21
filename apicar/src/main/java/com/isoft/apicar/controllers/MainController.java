@@ -38,7 +38,6 @@ public class MainController {
   @RequestMapping("/list")
   @ResponseBody
   public List<Car> filtredCars(@RequestParam("color") String color,@RequestParam("type") String type,@RequestParam("price") double price){
-    cars = new ArrayList<Car>();
    
     return gen.filtradoCar(cars,color , type, price);
   }
