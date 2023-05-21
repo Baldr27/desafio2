@@ -6,7 +6,48 @@
         <button type="submit">Generate</button>
       </form>
     </div>
-    <table class="table table-striped" v-if="cars">
+    <div>
+      <form @submit.prevent="filterForm">
+        <input type="number" v-model="price" placeholder="Enter price to filter">
+        <input type="text" v-model="color" placeholder="Enter color to filter">
+        <input type="text" v-model="type" placeholder="Enter type to filter">
+        <button type="submit">Filter</button>
+      </form>
+    </div>
+    <table class="table table-striped" v-if="filteredCars">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Brand</th>
+          <th scope="col">Year</th>
+          <th scope="col">Color</th>
+          <th scope="col">Price</th>
+          <th scope="col">Turbo</th>
+          <th scope="col">Type</th>
+          <th scope="col">Motor</th>
+          <th scope="col">Popularity</th>
+          <th scope="col">Cabinas</th>
+          <th scope="col">Sunroof</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="car in filteredCars" :key="car.id">
+          <td>{{car.id}}</td>
+          <td>{{car.brand}}</td>
+          <td>{{car.year}}</td>
+          <td>{{car.color}}</td>
+          <td>{{car.price}}</td>
+          <td>{{car.turbo}}</td>
+          <td>{{car.type}}</td>
+          <td>{{car.motor}}</td>
+          <td>{{car.popularity}}</td>
+          <td>{{car.cabinas}}</td>
+          <td>{{car.sunroof}}</td>
+        </tr>
+      </tbody>
+
+    </table>
+    <table class="table table-striped" v-if="cars && !filteredCars">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -49,6 +90,10 @@ export default {
   data(){
     return{
       quantity: 0,
+      price: null,
+      color: null,
+      type: null,
+      filteredCars: null,
       cars: null,
     };
   },
@@ -64,6 +109,19 @@ export default {
     },
     submitForm(){
       this.generate();
+    },
+    filter(){
+      axios.get(`http://localhost:3001/api/list?price=${this.price}&color=${this.color}&type=${this.type}`)
+        .then(response => {
+          this.filteredCars = response.data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
+    filterForm(){
+      this.filter();
+      console.log(cars);
     }
   }
 }

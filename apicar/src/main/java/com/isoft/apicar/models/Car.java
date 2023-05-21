@@ -30,4 +30,14 @@ public class Car {
     this.motor = motor;
     this.popularity = 0;
   }
+
+  public double getPrice(){
+    return this.price;
+  }
+  public String getColor(){
+    return this.color;
+  }
+  public String getType(){
+    return this.type;
+  }
 }
