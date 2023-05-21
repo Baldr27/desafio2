@@ -22,7 +22,7 @@ public class MainController {
 
   private static CarGenerator gen = new CarGenerator();
   private List<Car> cars = new ArrayList<Car>();
-
+  public  List<Car> carsFiltered = new ArrayList<Car>();
 
   @RequestMapping("/generate")
   @ResponseBody
@@ -32,6 +32,7 @@ public class MainController {
     for(int i = 1; i<=quantity; i++){
       cars.add(gen.generateCar((long)i));
     }
+    this.carsFiltered=cars;
     return cars;
   }
 
@@ -39,8 +40,10 @@ public class MainController {
   @ResponseBody
   public List<Car> filtredCars(@RequestParam("color") String color,@RequestParam("type") String type,@RequestParam("price") double price){
    
-    return gen.filtradoCar(cars,color , type, price);
+    return gen.filtradoCar(carsFiltered,color , type, price);
   }
+  //
+  //
   
 
   
