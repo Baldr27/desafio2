@@ -12,7 +12,7 @@ on:
   push:
     branches: [ "pipeline" ]
   pull_request:
-    branches: [ "pipe" ]
+    branches: [ "pipeline" ]
 
 jobs:
   build:
