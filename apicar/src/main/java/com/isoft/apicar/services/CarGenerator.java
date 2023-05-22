@@ -103,6 +103,7 @@ public class CarGenerator {
         List<Car> filtradoCar= new ArrayList<Car>();  
         filtradoCar=cars;
         int i;
+        
         for (i = 0; i < cars.size(); i++) {
             if(filtradoCar.get(i).getPrice()<= precio){
                 filtradoCar.remove(i);
