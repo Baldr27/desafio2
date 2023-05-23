@@ -44,7 +44,7 @@
 
     <div v-if="selectedCar" class="popup">
       <div class="popup-content">
-        <h2>Detalles del automóvil</h2>
+        <h2>Especificaciones del automóvil</h2>
         <p>ID: {{ selectedCar.type }}</p>
         <p>Marca: {{ selectedCar.brand }}</p>
         <p>Año: {{ selectedCar.year }}</p>
@@ -63,7 +63,7 @@
 </template>
 
 <script>
-//import { reactive } from 'vue';
+
 import axios from 'axios';
   
 export default {
@@ -97,9 +97,6 @@ export default {
 }
 </script>
 
-
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;
