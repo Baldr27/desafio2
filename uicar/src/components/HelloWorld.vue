@@ -35,9 +35,30 @@
           <td>{{car.popularity}}</td>
           <td>{{car.cabinas}}</td>
           <td>{{car.sunroof}}</td>
+          <td>
+          <button @click="showSpec(car)">Abrir Specs</button>
+        </td>
         </tr>
       </tbody>
     </table>
+
+    <div v-if="selectedCar" class="popup">
+      <div class="popup-content">
+        <h2>Detalles del automóvil</h2>
+        <p>ID: {{ selectedCar.type }}</p>
+        <p>Marca: {{ selectedCar.brand }}</p>
+        <p>Año: {{ selectedCar.year }}</p>
+        <p>Color: {{selectedCar.color}}</p>
+        <p>Price: {{selectedCar.price}}</p>
+        <p>Turbo: {{selectedCar.turbo}}</p>
+        <p>Motor: {{selectedCar.motor}}</p>
+        <p>Popularity: {{selectedCar.popularity}}</p>
+        <p>Cabinas: {{selectedCar.cabinas}}</p>
+        <p>Sunroof: {{selectedCar.sunroof}}</p>
+        <button @click="closePopup">Cerrar</button>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -50,6 +71,7 @@ export default {
     return{
       quantity: 0,
       cars: null,
+      selectedCar:null
     };
   },
   methods:{
@@ -64,10 +86,18 @@ export default {
     },
     submitForm(){
       this.generate();
+    },
+    showSpec(car) {
+      this.selectedCar = car;
+    },
+    closeSpec() {
+      this.selectedCar = null;
     }
   }
 }
 </script>
+
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
